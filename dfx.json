@@ -1,0 +1,41 @@
+{
+  "canisters": {
+    "sweeeleee_backend": {
+      "build": "python -m kybra sweeeleee_backend src/sweeeleee_backend/src/main.py src/sweeeleee_backend/sweeeleee_backend.did",
+      "candid": "src/sweeeleee_backend/sweeeleee_backend.did",
+      "declarations": {
+        "node_compatibility": true
+      },
+      "gzip": true,
+      "post_install": ".kybra/sweeeleee_backend/post_install.sh",
+      "tech_stack": {
+        "cdk": {
+          "kybra": {}
+        },
+        "language": {
+          "python": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".kybra/sweeeleee_backend/sweeeleee_backend.wasm"
+    },
+    "sweeeleee_frontend": {
+      "dependencies": [
+        "sweeeleee_backend"
+      ],
+      "source": [
+        "src/sweeeleee_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "sweeeleee_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
